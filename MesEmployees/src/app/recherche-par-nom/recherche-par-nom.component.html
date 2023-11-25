@@ -1,0 +1,31 @@
+<div class="container">
+         <form class="form-inline">
+             <div class="form-group mx-sm-3 mb-2 mt-2 ">
+             <label>Nom employee en tapant</label>
+             <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+             </div>
+        </form>
+ <div class="card shadow mb-4">
+ <div class="card-body">
+<table class="table table-striped">
+ <tr> 
+    <th>Id Employee</th>
+    <th>Nom Employee</th> 
+    <th>Prenom Employee</th> 
+    <th>Salaire</th> 
+    <th>Date de recrutement</th> 
+    <th>team </tr>
+ <tbody *ngFor="let employee of employees | searchFilter: searchTerm ">
+ <tr >
+     <td>{{employee.id}}</td>
+     <td>{{employee.nom}}</td>
+     <td>{{employee.prenom}}</td>
+     <td>{{employee.salaire}}</td>
+     <td>{{employee.dateRec|date:'dd/MM/yyyy'}}</td>
+     <td>{{employee.team.nomTeam}}</td>
+ </tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

@@ -1,0 +1,18 @@
+<form>
+    <div [hidden]="ajout" >
+        <label>ID Teams</label>
+        <input type="text" [readOnly]="!ajout" [(ngModel)]="teams.idTeam" name="idTeam" class="form-control w-25">
+    </div>
+    <div>
+        <label>Nom </label>
+        <input type="text" [(ngModel)]="teams.nomTeam" name="nomTeam" class="form-control"placeholder="Entrez un nom de team...">
+    </div>
+    <div>
+        <label>Description team </label>
+        <input type="text" [(ngModel)]="teams.descriptionTeam" name="descriptionTeam" class="form-control"placeholder="Entrez une description de team...">
+    </div>
+    <div class="mt-2">
+    <button type="submit" [disabled]="!teams.nomTeam" class="btn btn-success" (click)="saveTeam()" >{{ajout ? 'Ajouter' : 'Modifier'}}</button> 
+    </div>
+    </form>
+    

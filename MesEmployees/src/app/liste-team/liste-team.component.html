@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <app-update-team [teams]='updatedte'
+        [ajout]="ajout"
+        (teamUpdated)= "teamUpdated($event)">
+    </app-update-team>
+   </div>
+    <div class="card shadow mb-4">
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead>
+            <tr> 
+                <th>IdTeam</th>
+                <th>Nom Team</th> 
+                <th>Description Team</th>
+            </tr>
+            </thead>
+            <tbody *ngFor="let te of teams">
+            <tr>
+                <td>{{te.idTeam}}</td>
+                <td>{{te.nomTeam}}</td>
+                <td>{{te.descriptionTeam}}</td>
+                <td><a class="btn btn-success" (click)="updatete(te)">Editer</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    </div>

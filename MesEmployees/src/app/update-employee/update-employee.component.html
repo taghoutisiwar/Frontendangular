@@ -1,0 +1,41 @@
+<div class="container"> 
+    <div> 
+        <h2>Modifier un Employee:</h2>
+    </div>
+    <form > 
+        <div hidden class="col-sm-2 col-md-2 col-lg-2"> 
+            <label>ID Employee</label> 
+            <input readonly type="text" [(ngModel)]="currentEmployee.id" name="id" class="form-control">
+        </div> 
+        <div class="col-sm-4 col-md-4 col-lg-4" > 
+            <label>Nom Employee</label> 
+            <input type="text"[(ngModel)]="currentEmployee.nom" name="nom" class="form-control">
+        </div> 
+        <div class="col-sm-4 col-md-4 col-lg-4" > 
+            <label>Prenom Employee</label> 
+            <input type="text" [(ngModel)]="currentEmployee.prenom" name="prenom" class="form-control">
+        </div> 
+        <div class="col-sm-2 col-md-2 col-lg-2"> 
+            <label>Salaire</label> 
+            <input type="number" [(ngModel)]="currentEmployee.salaire"name="salaire" class="form-control">
+        </div> 
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date De Recrutement</label> 
+            <input type="date" [ngModel]="currentEmployee.dateRec | date: 'yyyy-MM-dd'"(ngModelChange)=" currentEmployee.dateRec= $event" name="dateRec"class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4"> 
+            <select class="form-control form-control-lg" id="idTeam" name="idTeam" [(ngModel)]="updatedteId"> 
+                <option *ngFor="let t of team" [value]="t.idTeam" >
+                {{t.nomTeam}}
+                </option>
+            </select>
+        </div> 
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+            <input type="file" (change)="onImageUpload($event)" class="form-control">
+            </div>
+        <div class="mt-2"> 
+            <button type="button" (click)="updateEmployee()" class="btn btn-success">Modifer</button>
+        </div>
+    </form>
+</div>

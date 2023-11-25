@@ -1,0 +1,49 @@
+<div class="container">
+    <div>
+    <h2>Ajouter un employee :</h2>
+    </div>
+    <form >
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label >ID employee</label>
+            <input type="text" [(ngModel)]="newEmployee.id" name="id" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Nom Employee</label>
+            <input type="text" [(ngModel)]="newEmployee.nom" name="nom" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+            <label >Prenom Employee</label>
+            <input type="text" [(ngModel)]="newEmployee.prenom" name="prenom" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label >Salaire</label>
+            <input type="number" [(ngModel)]="newEmployee.salaire"name="salaire" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label >Date de recrutement</label>
+            <input type="date" [(ngModel)]="newEmployee.dateRec" name="dateRec" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Team</label>
+            <select class="form-control form-control-lg" id="idTeam" name="idTeam" [(ngModel)]="newIdTeam">
+             <option *ngFor="let t of team" [value]="t.idTeam" >
+             {{t.nomTeam}}
+            </option>
+            </select>
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+            <input type="file" (change)="onImageUpload($event)"
+            name="logo" class="form-control">
+        </div>
+
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+            style="width: 500px; height: 300px" />
+        </div>>
+
+        <div class="mt-2">
+        <button type="submit" (click)="addEmployee()"class="btn btn-success">Ajouter</button>
+        </div>
+        </form>
+        </div>
